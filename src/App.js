@@ -59,6 +59,7 @@ class App extends Component {
   // and check if the user has won
   pointIncrease = () => {
     let score = this.state.currentScore + 1;
+    console.log(`the score is ${score}`)
     if (score === this.state.Icons.length) {
       this.setState({
         result: "You win! Start clicking to play again!",
@@ -113,9 +114,6 @@ class App extends Component {
           id={icon.id}
           image={icon.image}
           clickedPlayer={this.clickedPlayer}
-          pointIncrease={this.pointIncrease}
-          resetGame={this.resetGame}
-          resetIconArray={this.resetIconArray}
         />
         ))}
         </div>

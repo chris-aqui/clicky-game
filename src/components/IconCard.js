@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 //   }
 // };
 const IconCard = props => (
-  <section id={props.id} className="tc pa3" value={props.id} onClick={props.clickedPlayer(props.id)}>
+  <section id={props.id} className="tc pa3" value={props.id} onClick={props.clickedPlayer}>
     <article className="w4 pa2 ba bb b--black-10">
       <img src={props.image} className="db" alt="Photo" />
     </article>
