@@ -8,18 +8,24 @@ import React, { Component } from 'react';
 //     [array[i], array[j]] = [array[j], array[i]];
 //   }
 // };
-class IconCard extends Component {
+const IconCard = props => (
+  <section id={props.id} className="tc pa3" value={props.id} onClick={props.clickedPlayer(props.id)}>
+    <article className="w4 pa2 ba bb b--black-10">
+      <img src={props.image} className="db" alt="Photo" />
+    </article>
+  </section>
+)
 
 
-  render(){
-    return (
-      <section id={this.props.id} className="tc pa3" onClick={this.props.clickedPlayer}>
-        <article className="w4 pa2 ba bb b--black-10">
-          <img src={this.props.image} className="db" alt="Photo" />
-        </article>
-      </section>
-    )
-  }
-}
+  // render(){
+  //   return (
+      // <section id={this.props.id} className="tc pa3" value={this.props.id} onClick={this.props.clickedPlayer(this.props.id)}>
+      //   <article className="w4 pa2 ba bb b--black-10">
+      //     <img src={this.props.image} className="db" alt="Photo" />
+      //   </article>
+      // </section>
+//     )
+//   }
+// }
 
 export default IconCard;

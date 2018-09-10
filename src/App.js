@@ -9,10 +9,19 @@ import Icons from './icons.json';
 import "./components/IconCard.css";
 
 const shuffleArray = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+  let counter = array.length;
+  // While there are elements in the array
+  while (counter > 0) {
+      // Pick a random index
+      let index = Math.floor(Math.random() * counter);
+      // Decrease counter by 1
+      counter--;
+      // And swap the last element with it
+      let temp = array[counter];
+      array[counter] = array[index];
+      array[index] = temp;
   }
+  return array;
 };
 class App extends Component {
 
@@ -20,9 +29,9 @@ class App extends Component {
     currentScore: 0,
     topScore: 0,
     result: "",
-    gameOver: false,
     clicked: [],
-    Icons
+    Icons,
+    gameOver: false
   };
 
   // When the page loads and the component mounts,
@@ -30,20 +39,24 @@ class App extends Component {
   componentDidMount() {
     this.setState({result: "Click a player to get started"})
   }
-  //
+
   // When a player gets clicked,
   // increase points and add id of element to array.
   clickedPlayer = (id) => {
-    console.log(`Picture clicked with id: ${this.id}`);
+    // console.log(`Picture clicked with id: ${id}`);
     if(!this.state.clicked.includes(id)){
-      this.state.clicked.push(id);
       this.pointIncrease();
+      this.state.clicked.push(id);
+      this.setState({
+        gameOver: false
+      });
     } else {
-      // this.resetGame();
+      this.resetGame();
     }
   }
 
-  // When the user makes a new click, increment the points by 1 and check if the user has won
+  // When the user makes a new click, increment the points by 1
+  // and check if the user has won
   pointIncrease = () => {
     let score = this.state.currentScore + 1;
     if (score === this.state.Icons.length) {
@@ -54,13 +67,13 @@ class App extends Component {
         clicked: [],
         Icons,
         gameOver: false
-      })
+      });
     } else if (score > this.state.topScore) {
       this.setState({
-      topScore: score,
-      currentScore: score,
-      result: "Correct! New high score!",
-    })
+        topScore: score,
+        currentScore: score,
+        result: "Correct! New high score!",
+      });
     } else {
       this.setState({
         currentScore: score,
@@ -95,11 +108,14 @@ class App extends Component {
         <NavBar topScore={this.state.topScore} currentScore={this.state.currentScore} status={this.state.result}/>
         <Banner />
         <div className='mainStyle'>
-        {Icons.map(icon => (
+        {this.state.Icons.map(icon => (
         <IconCard
           id={icon.id}
           image={icon.image}
           clickedPlayer={this.clickedPlayer}
+          pointIncrease={this.pointIncrease}
+          resetGame={this.resetGame}
+          resetIconArray={this.resetIconArray}
         />
         ))}
         </div>
