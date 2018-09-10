@@ -19,7 +19,7 @@ class IconCard extends Component {
     console.log(`Picture clicked with id: ${this.props.id}`);
     this.setState({
       click: true,
-      clicked: id
+      clicked: this.state.clicked.push(this.props.id)
     })
   }
 
