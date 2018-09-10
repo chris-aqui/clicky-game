@@ -11,11 +11,24 @@ import "./components/IconCard.css";
 
 class App extends Component {
 
+  state = {
+    currentScore: 0,
+    topScore: 0,
+    rightWrong: "",
+    status: "try again",
+    clicked: [],
+    touch: 0
+  };
+
+  // handleClick = id => {
+  //   this.setState.touch
+  // }
+
 
   render() {
     return (
       <div>
-        <NavBar/>
+        <NavBar topScore={this.state.topScore} currentScore={this.state.currentScore} status={this.state.status}/>
         <Banner />
         <div className='mainStyle'>
         {Icons.map(icon => (

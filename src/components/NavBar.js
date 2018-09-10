@@ -5,12 +5,12 @@ class NavBar extends Component {
 
   render() {
     return (
-      <header className="bg-black-60 w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
+      <header className="bg-black-60 w-100 ph3 pv3 pv2-ns ph4-m ph5-l">
         <nav className="f6 fw6 ttu tracked">
-          <a className="link dim white dib mr3" href="#" title="Home">Game Name</a>
-          <p className="link dim white dib mr3" href="#">Your answer state</p>
-          <a className="link dim white dib mr3" href="#" title="Store">Score: </a>
-          <a className="link dim white dib" href="#" title="Contact">Top Score: </a>
+          <a className="link dim white dib mr3"  title="Home">Game Name</a>
+          <p className="link dim white dib mr3" >{this.props.status}</p>
+          <a className="link dim white dib mr3" title="Store">Score: {this.props.currentScore} </a>
+          <a className="link dim white dib" title="Contact">Top Score: {this.props.topScore} </a>
         </nav>
       </header>
     )
