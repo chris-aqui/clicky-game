@@ -48,7 +48,7 @@ class App extends Component {
   // When a player gets clicked,
   // increase points and add id of element to array.
   clickedPlayer = (id) => {
-    // console.log(`Picture clicked with id: ${id}`);
+    console.log(`Picture clicked with id: ${id}`);
     if(!this.state.clicked.includes(id)){
       this.pointIncrease();
       this.state.clicked.push(id);
@@ -64,7 +64,7 @@ class App extends Component {
   // and check if the user has won
   pointIncrease = () => {
     let score = this.state.currentScore + 1;
-    console.log(`the score is ${score}`)
+    console.log(`the score is ${score}`);
     if (score === this.state.Icons.length) {
       this.setState({
         result: "You win! Start clicking to play again!",
@@ -99,6 +99,7 @@ class App extends Component {
       Icons,
       gameOver: true
     });
+    console.log('Game over? ', this.state.gameOver);
     this.resetIconArray();
   }
 
