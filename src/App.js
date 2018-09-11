@@ -93,6 +93,7 @@ class App extends Component {
   resetGame = () => {
     this.setState({
       points: 0,
+      currentScore:0,
       topScore: this.state.topScore,
       result: "You Loss!",
       clicked: [],
