@@ -11,12 +11,9 @@ const style = {
 }
 
 const Banner = props => (
-  <article style={style.bgDark} className="mw7 center ph3 ph5-ns tc br2 pv5 bg-black-90 mb5">
+  <article style={style.bgDark} className="mw7 center ph3 ph5-ns tc br2 pv3 bg-black-90 mb5 animated fadeIn">
     <img style={style.logoIcon} className='logoIcon' src="./img/pacman.gif" alt="pacman"/>
-    <h1 className="fw6 f3 f2-ns lh-title mt0 mb3 white">
-    The Game!
-    </h1>
-    <h2 className="fw2 f4 lh-copy mt0 mb3 white">
+    <h2 className="fw2 f4 lh-copy mt0 mb3 white animated fadeIn slower">
     Click on an image to earn points, but don't click on any more than once!
     </h2>
   </article>
