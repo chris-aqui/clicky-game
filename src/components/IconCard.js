@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 const IconCard = props => (
@@ -6,7 +6,7 @@ const IconCard = props => (
   props.clickedPlayer(props.id)
   }>
     <article className="w4 pa2 ">
-      <img src={props.image} className="db" alt="Photo" />
+      <img src={props.image} className="db" alt="game-char" />
     </article>
   </section>
 )
