@@ -8,7 +8,7 @@ import Icons from './icons.json';
 //
 import "./components/IconCard.css";
 //
-import "tachyons";
+// import "tachyons";
 // import "hover";
 // import "animate";
 
